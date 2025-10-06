@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --primary-color: #007bff; /* Vibrant Blue */
+    --background-color: #e0f2f7; /* Very light blue background */
+    --card-background: #ffffff;
+    --text-color: #212529;
+    --subtle-text: #6c757d;
+    --border-color: #cce7f0; /* Border color matching background */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-card {
+    background-color: var(--card-background);
+    padding: 3rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-card h2 {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.login-card p {
+    color: var(--subtle-text);
+    margin-bottom: 2.5rem;
+}
+
+.google-login-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2rem;
+    border-radius: 0.5rem;
+    background-color: #4285F4; /* Google Blue */
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease; /* Consistent transition duration */
+    border: none;
+}
+
+.google-login-btn:hover {
+    transform: translateY(-2px) scale(1.02); /* Consistent lift and scale */
+    box-shadow: 0 6px 20px rgba(66, 133, 244, 0.4);
+}
+
+.google-login-btn i {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+}

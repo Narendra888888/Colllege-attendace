@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Soft Colored Background with Vibrant Accents Theme */
+
+:root {
+    --primary-color: #007bff; /* Vibrant Blue */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --danger-color: #dc3545;
+    
+    --background-color: #e0f2f7; /* Very light blue background */
+    --navbar-background: #d0eaf2; /* Slightly darker blue for navbar */
+    --card-background: #ffffff;
+    
+    --text-color: #212529;
+    --subtle-text: #6c757d;
+    --border-color: #cce7f0; /* Border color matching background */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    background-color: var(--navbar-background);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: var(--primary-color) !important;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease-in-out; /* Enhanced transition for hover */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+}
+
+.card-header {
+    background-color: #f8f9fa; /* Light gray header for contrast */
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+
+.table th {
+    font-weight: 600;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f8f9fa; /* Light gray for striped rows */
+}
+
+.table-hover tbody tr {
+    transition: background-color 0.2s ease; /* Smooth transition for table row hover */
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05); /* Subtle blue highlight on hover */
+}
+
+.btn {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s ease; /* Enhanced transition for buttons */
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02); /* Slight lift and scale on hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+
+.btn-primary { background-color: var(--primary-color); color: #fff; }
+.btn-primary:hover { filter: brightness(95%); }
+
+.btn-outline-primary { 
+    border: 1px solid var(--primary-color); 
+    color: var(--primary-color); 
+    background-color: transparent;
+    box-shadow: none;
+}
+.btn-outline-primary:hover { background-color: var(--primary-color); color: #fff; }
+
+.btn-success { background-color: var(--success-color); color: #fff; }
+.btn-warning { background-color: var(--warning-color); color: var(--text-color); }
+.btn-info { background-color: var(--info-color); color: #fff; }
+.btn-danger { background-color: var(--danger-color); color: #fff; }
+.btn-outline-danger { border-color: var(--danger-color); color: var(--danger-color); background-color: transparent; box-shadow: none;}
+.btn-outline-danger:hover { background-color: var(--danger-color); color: #fff; }
+
+
+.badge.bg-success { background-color: var(--success-color) !important; }
+.badge.bg-danger { background-color: var(--danger-color) !important; }
+.badge.bg-info { background-color: var(--info-color) !important; }
+
+.status-present { color: var(--success-color); font-weight: 600; }
+.status-absent { color: var(--danger-color); font-weight: 600; }
+.status-pending { color: var(--subtle-text); }
+
+/* Alerts fade in/out */
+.alert {
+    animation: fadeInOut 5s forwards; /* Fade in and then fade out */
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .d-flex.flex-wrap.justify-content-end.gap-2 .btn {
+        width: auto;
+    }
+
+    .table td:last-child {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .table td:last-child .btn {
+        width: 100%;
+        margin: 0;
+    }
+}

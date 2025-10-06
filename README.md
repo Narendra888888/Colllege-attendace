@@ -1,135 +1,71 @@
 # College Attendance Management System
 
-A modern web-based attendance management system for colleges that allows you to upload student data from Excel files and manage daily attendance with present/absent buttons.
+A web-based attendance management system for colleges with Excel import functionality.
 
 ## Features
 
-- 📊 **Excel Import**: Upload student data from Excel files (.xlsx, .xls)
-- 👥 **Student Management**: View and manage student information
-- ✅ **Attendance Tracking**: Mark students as present or absent
-- 📅 **Date-wise Attendance**: Track attendance for different dates
-- 📈 **Statistics**: View attendance summaries and charts
-- 💾 **Data Persistence**: Data is saved locally using SQLite database
-- 📱 **Responsive Design**: Works on desktop and mobile devices
+- 📊 **Student Management**: Upload student data via Excel files
+- 📅 **Attendance Tracking**: Mark attendance for specific dates
+- 📈 **Real-time Statistics**: View present/absent counts and percentages
+- 📋 **Attendance History**: Track attendance records over time
+- 📊 **Data Visualization**: Charts and graphs for attendance analysis
 
-## Installation
-
-1. **Clone or download** this project to your computer
-2. **Install Node.js** (version 14 or higher) from [nodejs.org](https://nodejs.org/)
-3. **Install dependencies**:
-   ```bash
-   npm install
-   ```
-4. **Start the server**:
-   ```bash
-   npm start
-   ```
-5. **Open your browser** and go to `http://localhost:3000`
-
-## How to Use
-
-### 1. Prepare Excel File
-Create an Excel file with student data in the following format:
-
-| Roll No | Name | Email |
-|---------|------|-------|
-| 001 | John Doe | john@example.com |
-| 002 | Jane Smith | jane@example.com |
-| 003 | Bob Johnson | bob@example.com |
-
-**Important**: 
-- First row should contain headers (Roll No, Name, Email)
-- The system will automatically detect columns with names like "roll", "name", "email"
-- Make sure Roll No and Name columns have data for all students
-
-### 2. Upload Students
-1. Click on "Choose File" and select your Excel file
-2. Click "Upload & Process" button
-3. The system will import all students and display them in the table
-
-### 3. Mark Attendance
-1. Select the date for attendance (defaults to today)
-2. For each student, click:
-   - **Present** button to mark as present
-   - **Absent** button to mark as absent
-3. Use "Mark All Present" to quickly mark all students as present
-
-### 4. View Reports
-- **Summary**: See present/absent counts for the selected date
-- **History**: View attendance records for the last 10 days
-- **Chart**: Visual representation of attendance statistics
-
-## File Structure
+## Project Structure
 
 ```
-college-attendance-system/
-├── index.html          # Main web page
-├── styles.css          # Styling and responsive design
-├── script.js           # Frontend JavaScript functionality
-├── server.js           # Backend API server
-├── package.json        # Node.js dependencies
-├── README.md          # This file
-└── attendance.db      # SQLite database (created automatically)
+College Attendance System/
+├── backend/
+│   ├── server.js          # Express.js server
+│   ├── package.json       # Backend dependencies
+│   ├── attendance.db      # SQLite database
+│   └── uploads/           # Excel file uploads
+├── frontend/
+│   ├── index.html         # Main HTML page
+│   ├── script.js          # Frontend JavaScript
+│   └── styles.css         # Custom CSS styles
+└── README.md              # This file
 ```
+
+## Installation & Setup
+
+### Prerequisites
+- Node.js (v14 or higher)
+- npm
+
+### Backend Setup
+```bash
+cd backend
+npm install
+npm start
+```
+
+### Frontend
+The frontend is served automatically by the backend server at `http://localhost:3000`
+
+## Usage
+
+1. **Upload Student Data**: Use the Excel upload feature to add student information
+2. **Select Date**: Choose the date for attendance marking
+3. **Mark Attendance**: Click Present/Absent buttons for each student
+4. **Submit**: Click "Submit Attendance" to save the data
+5. **View Reports**: Check attendance history and statistics
 
 ## API Endpoints
 
-The system provides REST API endpoints for data management:
-
 - `GET /api/students` - Get all students
-- `POST /api/students/upload` - Upload students from Excel
+- `POST /api/students/upload` - Upload Excel file with student data
 - `GET /api/attendance/:date` - Get attendance for specific date
-- `POST /api/attendance` - Mark attendance
-- `GET /api/attendance/:date/summary` - Get attendance summary
+- `POST /api/attendance/bulk` - Submit bulk attendance data
 - `GET /api/attendance/history` - Get attendance history
+- `GET /api/attendance/:date/summary` - Get attendance summary for date
 
 ## Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **UI Framework**: Bootstrap 5
-- **Backend**: Node.js, Express.js
-- **Database**: SQLite
-- **Excel Processing**: SheetJS (XLSX)
+- **Backend**: Node.js, Express.js, SQLite3
+- **Frontend**: HTML5, CSS3, JavaScript (ES6+), Bootstrap 5
+- **File Processing**: Multer, XLSX
 - **Charts**: Chart.js
-- **Icons**: Font Awesome
-
-## Browser Support
-
-- Chrome 60+
-- Firefox 60+
-- Safari 12+
-- Edge 79+
-
-## Troubleshooting
-
-### Excel File Not Uploading
-- Make sure file format is .xlsx or .xls
-- Check that first row contains headers
-- Ensure Roll No and Name columns have data
-
-### Students Not Displaying
-- Verify Excel file has proper headers
-- Check browser console for errors
-- Make sure Roll No and Name columns are not empty
-
-### Data Not Saving
-- Check if browser allows localStorage
-- Verify server is running
-- Check database permissions
-
-## Development
-
-To run in development mode with auto-restart:
-
-```bash
-npm run dev
-```
 
 ## License
 
-This project is licensed under the MIT License.
-
-## Support
-
-For issues or questions, please check the troubleshooting section above or contact the system administrator.
-
+MIT License
